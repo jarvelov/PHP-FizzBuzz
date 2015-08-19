@@ -19,11 +19,39 @@ if (!isset($argv[2])) {
 }
 
 /**
- * Here you should add your own implementation 
+ * Here you should add your own implementation
  *
  * @var int      $max   the maximum number that fizzbuzz should show
  * @var string[] $rules array with the rules as strings
  */
 
-echo "1 2"; //replace and extend this code
+function output($string) {
+	echo $string . ' ';
+}
 
+for($i = 1; $i <= $max; $i++) {
+	$multipleof3 = ($i % 3 == 0);
+	$multipleof5 = ($i % 5 == 0);
+
+	if($multipleof3 AND $multipleof5) {
+		if(in_array('fizzbuzz', $rules)) {
+			output('fizzbuzz');
+		} else {
+			output($i);
+		}
+	} elseif($multipleof3) {
+		if(in_array('fizz', $rules)) {
+			output('fizz');
+		} else {
+			output($i);
+		}
+	} elseif($multipleof5) {
+		if(in_array('buzz', $rules)) {
+			output('buzz');
+		} else {
+			output($i);
+		}
+	} else {
+		output($i);
+	}
+}
